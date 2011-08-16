@@ -15,8 +15,8 @@ script/plugin install git://github.com/michaelkoper/memcache-store-with-delete_g
 To fetch groups called pages:
 
   Rails.cache.fetch([:pages, 1], :delete_type => true) { "page 1" }
-	Rails.cache.fetch([:pages, 2], :delete_type => true) { "page 2" }
-	Rails.cache.fetch([:pages, 3], :delete_type => true) { "page 3" }
+  Rails.cache.fetch([:pages, 2], :delete_type => true) { "page 2" }
+  Rails.cache.fetch([:pages, 3], :delete_type => true) { "page 3" }
 	
 To delete all the pages:
 
