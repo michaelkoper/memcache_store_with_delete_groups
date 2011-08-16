@@ -1,0 +1,31 @@
+MemCache Store with delete groups
+================
+Author: Michael Koper.
+
+= Description
+If you're using default Memcache store provided by Rails (2.1) you're probably missing functionality like delete_matched() method used by expire_fragment() to clear cache with Regex. This plugin is implementing some kind of features. Because of speed reasons not delete_matched but delete_type. It's possible to delete groups of cache in 1 call. It's not memcache implementation but simple Ruby code to provide this functionality. 
+
+This plugin fixes the known errors like 'undefined class module ClassName' as well.
+
+= Installation with Rails > 2.1
+script/plugin install git://github.com/michaelkoper/memcache-store-with-delete_groups.git
+
+= Usage
+
+To fetch groups called pages:
+
+  Rails.cache.fetch([:pages, 1], :delete_type => true) { "page 1" }
+	Rails.cache.fetch([:pages, 2], :delete_type => true) { "page 2" }
+	Rails.cache.fetch([:pages, 3], :delete_type => true) { "page 3" }
+	
+To delete all the pages:
+
+  Rails.cache.delete_type(:pages)
+
+= Requirements
+  - Memcache
+  - memcache-client gem
+  - rspec for running tests
+
+I stole the idea and some code from this repostiroy: git://github.com/martincik/memcache_store_with_delete_matched.git
+So some credits go to Ladislav Martincik
