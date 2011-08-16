@@ -27,4 +27,4 @@ To delete all the pages:
   - memcache-client gem
 
 I stole the idea and some code from this repostiroy: git://github.com/martincik/memcache_store_with_delete_matched.git
-So some credits gooes to Ladislav Martincik :-)
+So some credits goes to Ladislav Martincik :-)
